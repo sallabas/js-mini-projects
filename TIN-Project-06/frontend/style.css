@@ -1,0 +1,394 @@
+/* Genel Sayfa Stilleri */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #2c2c54; /* Koyu Mor Arka Plan */
+    color: #f1f1f1; /* Açık Gri Metin Rengi */
+}
+
+h1 {
+    text-align: center;
+    margin: 20px 0;
+    color: #dcd6f7; /* Açık Mor Başlık Rengi */
+}
+
+/* Ana Konteyner */
+.container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #3c3c64; /* Koyu Gri Konteyner Rengi */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Tablo Stili */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th, table td {
+    border: 1px solid #565676; /* Daha Koyu Çerçeve Rengi */
+    padding: 12px;
+    text-align: left;
+    color: #f1f1f1; /* Açık Gri Metin */
+}
+
+table th {
+    background-color: #4c4c76; /* Koyu Mor Başlık Rengi */
+    color: #fff;
+    text-transform: uppercase;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #3c3c64; /* Konteyner Rengiyle Uyumlu */
+}
+
+table tbody tr:hover {
+    background-color: #5e5e8e; /* Hover Rengi: Daha Açık Mor */
+}
+
+/* Buton Stilleri */
+button {
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 8px 16px;
+    margin: 5px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #fff;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+}
+
+.add-button {
+    background-color: #28a745;
+}
+
+.add-button:hover {
+    background-color: #218838;
+}
+
+.edit-button {
+    background-color: #ffc107;
+    color: #000;
+}
+
+.edit-button:hover {
+    background-color: #e0a800;
+}
+
+.delete-button {
+    background-color: #dc3545;
+}
+
+.delete-button:hover {
+    background-color: #c82333;
+}
+
+.info-button {
+    background-color: #17a2b8;
+}
+
+.info-button:hover {
+    background-color: #138496;
+}
+
+/* Form Container */
+.form-container {
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 20px;
+    background: #3c3c64;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Form Labels */
+form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #f1f1f1;
+}
+
+/* Input Fields */
+form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #565676;
+    border-radius: 4px;
+    background-color: #2c2c54;
+    color: #f1f1f1;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+/* Fix Overflow in Inputs */
+form input[type="text"],
+form input[type="date"] {
+    height: 40px; /* Sabit bir yükseklik */
+    line-height: normal;
+}
+
+/* On Focus */
+form input:focus {
+    outline: none;
+    border-color: #17a2b8;
+    box-shadow: 0 0 5px rgba(23, 162, 184, 0.5);
+}
+
+/* Buttons */
+form button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #28a745;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #218838;
+}
+
+/* Cancel Button */
+form a.button {
+    display: inline-block;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    background-color: #dc3545;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 10px;
+    transition: background-color 0.3s ease;
+}
+
+form a.button:hover {
+    background-color: #c82333;
+}
+
+/* Title */
+h1 {
+    text-align: center;
+    color: #dcd6f7;
+    margin-bottom: 20px;
+}
+
+/* Overall Page Background */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #2c2c54;
+    color: #f1f1f1;
+}
+
+
+/* Başlık Stili */
+h1 {
+    text-align: center;
+    color: #dcd6f7; /* Açık mor */
+    margin-bottom: 20px;
+}
+
+/* Genel Gövde */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #2c2c54; /* Koyu mor */
+    color: #f1f1f1; /* Açık gri */
+}
+
+/* Navbar Butonları */
+.navbar-right {
+    float: right;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #f1f1f1;
+}
+
+.navbar-right span {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.navbar-button {
+    background-color: #6c63ff;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.navbar-button:hover {
+    background-color: #5848d4;
+}
+
+/* Notification Styles */
+.notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    padding: 10px 20px;
+    border-radius: 4px;
+    color: #fff;
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.8); /* Daha şeffaf görünüm */
+    transition: opacity 0.5s ease-out;
+}
+
+
+.notification.success {
+    background-color: #28a745; /* Yeşil */
+}
+
+.notification.error {
+    background-color: #dc3545; /* Kırmızı */
+}
+
+@keyframes fadeOut {
+    0% { opacity: 1; }
+    100% { opacity: 0; transform: translateY(-20px); }
+}
+
+
+/* Pagination Styles */
+.pagination {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.pagination button {
+    background-color: #6c63ff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.pagination button:disabled {
+    background-color: #aaa;
+    cursor: not-allowed;
+}
+
+.pagination span {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0 10px;
+}
+
+
+
+/* Login Form Specific Styles */
+.form-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #3c3c64;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.form-container h1 {
+    font-size: 24px;
+    color: #dcd6f7;
+    margin-bottom: 20px;
+}
+
+.form-container label {
+    display: block;
+    font-weight: bold;
+    color: #f1f1f1;
+    margin-bottom: 8px;
+    text-align: left;
+}
+
+.form-container input[type="text"],
+.form-container input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #565676;
+    border-radius: 5px;
+    background-color: #2c2c54;
+    color: #f1f1f1;
+    font-size: 14px;
+}
+
+.form-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: #6c63ff;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form-container button:hover {
+    background-color: #5848d4;
+}
+
+.form-container a {
+    display: block;
+    margin-top: 15px;
+    color: #dcd6f7;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.form-container a:hover {
+    text-decoration: underline;
+}
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    table, table th, table td {
+        display: block;
+        width: 100%;
+    }
+    table th {
+        display: none;
+    }
+    table tr {
+        margin-bottom: 10px;
+        border: 1px solid #565676;
+    }
+    table td {
+        display: flex;
+        justify-content: space-between;
+        padding: 8px;
+    }
+    table td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        text-transform: uppercase;
+        color: #dcd6f7; /* Açık Mor */
+    }
+}

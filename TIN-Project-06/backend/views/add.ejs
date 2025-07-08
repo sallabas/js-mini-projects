@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Event</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<h1>Add Event</h1>
+<div class="form-container">
+    <form action="/add" method="POST">
+        <label for="name">Event Name:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required>
+        <label for="location">Location:</label>
+        <input type="text" id="location" name="location" required pattern="[A-Za-z\s]+" title="Location must contain only alphabetic characters and spaces">
+        <button type="submit">Add Event</button>
+        <a href="/" class="button">Cancel</a>
+    </form>
+</div>
+</body>
+</html>
