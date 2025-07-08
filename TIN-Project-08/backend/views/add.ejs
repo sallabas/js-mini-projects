@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= __('addEvent') %></title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<h1><%= __('addEvent') %></h1>
+<div class="form-container">
+    <form action="/add" method="POST">
+        <label for="name"><%= __('eventName') %>:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="date"><%= __('date') %>:</label>
+        <input type="date" id="date" name="date" required>
+        <label for="location"><%= __('location') %>:</label>
+        <input type="text" id="location" name="location" required pattern="[A-Za-z\s]+" title="<%= __('locationValidation') %>">
+        <button type="submit"><%= __('addEvent') %></button>
+        <a href="/" class="button"><%= __('cancel') %></a>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= __('editEvent') %></title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<h1><%= __('editEvent') %></h1>
+<div class="form-container">
+    <form action="/edit/<%= eventData.id %>" method="POST">
+        <label for="name"><%= __('eventName') %>:</label>
+        <input type="text" id="name" name="name" value="<%= eventData.name %>" required>
+        <label for="date"><%= __('date') %>:</label>
+        <input type="date" id="date" name="date" value="<%= eventData.date %>" required>
+        <label for="location"><%= __('location') %>:</label>
+        <input type="text" id="location" name="location" value="<%= eventData.location %>" required>
+        <button type="submit"><%= __('updateEvent') %></button>
+        <a href="/" class="button"><%= __('cancel') %></a>
+    </form>
+</div>
+</body>
+</html>

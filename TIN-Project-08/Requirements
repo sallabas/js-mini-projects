@@ -1,0 +1,44 @@
+Level 1 (10p)
+     +  - At least 3 connected database table (including many-to-many relationship with at least
+        one additional column in addition to foreign keys in the connecting table)
+     +  - At least 3 different types of columns (INT, TEXT, DATE)
+                ?? FOR EACH TABLE? OR IN GENERAL ??
+     +  - At least 2 columns in each table (in addition to the PK)
+                ?? IN ADDITION TO FK AS WELL ??
+
+    Functionalities:
+    +   - Adding updating, deleting records to the database
+                ?? ADDING UPDATING AND DELETING FROM THE SAME PAGE (INDEX.HTML) OR?
+    + - - Displaying a list of all records for each table (only most important columns)
+                ?? SHOULD IT BE KINDA HTML THAT SHOWS RECORD WHICH TAKE RECORD FROM ALL TABLES ??
+        - Displaying detailed views (all columns + records connected by relationship)
+                ?? WHAT DOES IT MEAN?
+    +   - Data validation on the client and server side
+                ?? SHOULD WE VALIDATE BOTH FROM CLIENT SIDE AND SERVER SIDE?
+
+    Constraints:
+    +    - SQLite as a database, the project must contain easy-to-follow instructions for updating database connection information
+
+    The solution must include:
+    +   - Frontend and backend application code
+    +   - Database creation script
+    +   - Database script for creating sample data
+    +   - Any compilation scripts etc. used to build the application
+
+Level 2 (20p)
+    Additional functionalities:
+    +   - Registration and login (including necessary database tables)
+                ?? So we must store all the registration or lets say all entry
+    +   - Different functionalities depending on user status (logged in/guest) - e.g. only logged in users can modify data
+                ?? It must be updated when logged in (like reload the page and show status of logged in or log in)
+    +   - Pagination of displayed lists
+
+Level 3 (20p)
+    Additional requirements:
+        - The frontend application should be built as a Single Page Application
+
+    Additional functionalities:
+    +   - At least 3 user roles (e.g. logged in, guest, administrator) with different available functionalities
+    +   - Introduction of resource-level permissions (e.g. a customer can only view their own orders, a manager can
+        view and update only employee data from your department)
+        - Internationalization (at least 2 language)

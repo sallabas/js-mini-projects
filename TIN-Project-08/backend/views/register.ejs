@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= __('register') %></title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="form-container">
+    <h1><%= __('register') %></h1>
+    <form action="/register" method="POST">
+        <label for="name"><%= __('firstName') %>:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="surname"><%= __('lastName') %>:</label>
+        <input type="text" id="surname" name="surname" required>
+
+        <label for="email"><%= __('email') %>:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="age"><%= __('age') %>:</label>
+        <input type="number" id="age" name="age" min="1" required>
+
+        <button type="submit"><%= __('register') %></button>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= __('adminPanel') %></title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header>
+    <h1><%= __('adminPanel') %></h1>
+    <button class="logout-button" onclick="window.location.href='/logout'"><%= __('logout') %></button>
+</header>
+<table>
+    <thead>
+    <tr>
+        <th><%= __('id') %></th>
+        <th><%= __('name') %></th>
+        <th><%= __('email') %></th>
+        <th><%= __('role') %></th>
+        <th><%= __('actions') %></th>
+    </tr>
+    </thead>
+    <tbody>
+    <% users.forEach(user => { %>
+        <tr>
+            <td><%= user.id %></td>
+            <td><%= user.name %></td>
+            <td><%= user.email %></td>
+            <td><%= user.role %></td>
+            <td>
+                <form action="/admin/delete/<%= user.id %>" method="POST">
+                    <button class="delete-button" type="submit"><%= __('delete') %></button>
+                </form>
+            </td>
+        </tr>
+    <% }); %>
+    </tbody>
+</table>
+</body>
+</html>
