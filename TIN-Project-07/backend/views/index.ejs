@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Management System</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="container">
+
+    <!-- Navbar -->
+    <nav>
+        <% if (userName) { %>
+            <div class="navbar-right">
+                <span><%= userName %></span>
+                <button class="navbar-button" onclick="window.location.href='/add'">Add Event</button>
+                <button class="navbar-button" onclick="window.location.href='/logout'">Log Out</button>
+            </div>
+        <% } else { %>
+            <button class="navbar-button" onclick="window.location.href='/admin-login'">Admin</button>
+            <button class="navbar-button" onclick="window.location.href='/login'">Log In</button>
+            <button class="navbar-button" onclick="window.location.href='/register'">Register</button>
+        <% } %>
+    </nav>
+
+
+
+
+    <!-- Main Header -->
+    <h1>Event Management System</h1>
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>NAME</th>
+            <th>DATE</th>
+            <th>LOCATION</th>
+            <th>ACTIONS</th>
+        </tr>
+        </thead>
+        <tbody id="eventTableBody"></tbody>
+    </table>
+
+    <!-- Pagination Controls -->
+    <div class="pagination">
+        <button id="prevPage" onclick="changePage(-1)">Previous</button>
+        <span id="currentPage">1</span>
+        <button id="nextPage" onclick="changePage(1)">Next</button>
+    </div>
+</div>
+
+<div id="notification-container" style="position: fixed; top: 20px; right: 20px; z-index: 1000;"></div>
+
+
+<script>
+    let currentPage = 1;
+
+    async function fetchEvents() {
+        try {
+            const response = await fetch(`/events?page=${currentPage}&limit=10`);
+            if (!response.ok) {
+                throw new Error('Failed to fetch events.');
+            }
+
+            const data = await response.json();
+            const events = data.events;
+
+            const eventTableBody = document.getElementById('eventTableBody');
+            eventTableBody.innerHTML = '';
+
+            events.forEach(event => {
+                const row = document.createElement('tr');
+                row.setAttribute('data-event-id', event.id);
+                row.innerHTML = `
+                    <td>${event.id}</td>
+                    <td>${event.name}</td>
+                    <td>${event.date}</td>
+                    <td>${event.location}</td>
+                    <td>
+                        <button class="info-button" onclick="toggleEventInfo(${event.id})">Info</button>
+                        <button class="sign-up-button" onclick="signUpForEvent(${event.id})">Sign Up</button>
+                        <button class="edit-button" onclick="openEditEventForm(${event.id})">Edit</button>
+                        <button class="delete-button" onclick="deleteEvent(${event.id})">Delete</button>
+                    </td>
+                `;
+                eventTableBody.appendChild(row);
+            });
+
+
+            // Update pagination controls
+            document.getElementById('currentPage').innerText = currentPage;
+            document.getElementById('prevPage').disabled = currentPage === 1;
+            document.getElementById('nextPage').disabled = currentPage >= data.totalPages;
+
+        } catch (error) {
+            console.error('Error fetching events:', error);
+            alert('An error occurred while fetching events.');
+        }
+    }
+
+    function changePage(direction) {
+        currentPage += direction;
+        fetchEvents();
+    }
+
+    async function toggleEventInfo(eventId) {
+        const eventRow = document.querySelector(`[data-event-id='${eventId}']`);
+        const nextRow = eventRow.nextElementSibling;
+
+        if (nextRow && nextRow.classList.contains('info-row')) {
+            nextRow.remove();
+            return;
+        }
+
+        try {
+            const response = await fetch(`/event-info/${eventId}`);
+            if (!response.ok) {
+                throw new Error('Failed to fetch event info.');
+            }
+
+            const participants = await response.json();
+
+            const infoRow = document.createElement('tr');
+            infoRow.classList.add('info-row');
+            infoRow.innerHTML = `
+                <td colspan="5">
+                    <strong>Participants:</strong>
+                    <ul>
+                        ${participants.map(participant => `
+                            <li>${participant.name} - ${participant.participationDate}</li>
+                        `).join('')}
+                    </ul>
+                </td>
+            `;
+            eventRow.insertAdjacentElement('afterend', infoRow);
+        } catch (error) {
+            console.error('Error fetching event info:', error);
+            alert('An error occurred while fetching event info.');
+        }
+    }
+
+    async function signUpForEvent(eventId) {
+        try {
+            const response = await fetch(`/sign-up/${eventId}`, { method: 'POST' });
+            if (response.ok) {
+                alert('You successfully signed up for the event!');
+                fetchEvents();
+            } else {
+                alert('Failed to sign up for the event.');
+            }
+        } catch (error) {
+            console.error('Error signing up for event:', error);
+        }
+    }
+
+    function openEditEventForm(eventId) {
+        window.location.href = `/edit/${eventId}`;
+    }
+
+    async function deleteEvent(eventId) {
+        if (confirm('Are you sure you want to delete this event?')) {
+            const response = await fetch(`/delete/${eventId}`, { method: 'POST' });
+            if (response.ok) {
+                alert('Event deleted successfully.');
+                fetchEvents();
+            } else {
+                alert('Failed to delete the event.');
+            }
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', fetchEvents);
+</script>
+</body>
+</html>
