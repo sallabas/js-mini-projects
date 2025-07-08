@@ -23,8 +23,3 @@ This repository contains a collection of small-scale JavaScript projects built f
 ## 📂 Project Structure
 
 Each project is placed in its own folder under the root directory.  
-You can open any `index.html` file in your browser to try the project.
-
-## 📬 Feedback
-
-Feel free to open issues or submit PRs for improvements or suggestions!
